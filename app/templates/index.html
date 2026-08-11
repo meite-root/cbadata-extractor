@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CBA Data Extractor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <span class="eyebrow">AUDITABLE NLP PIPELINE</span>
+      <h1>CBA Data Extractor</h1>
+    </div>
+    <div id="engineBadge" class="engine-badge">Ready</div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="steps" aria-label="Processing steps">
+      <div class="step-title">Pipeline</div>
+      <button class="step active" data-step="1"><span>1</span><b>Paste contract</b></button>
+      <button class="step" data-step="2"><span>2</span><b>Remove non-core</b></button>
+      <button class="step" data-step="3"><span>3</span><b>Split sections</b></button>
+      <button class="step" data-step="4"><span>4</span><b>Split sentences</b></button>
+      <button class="step" data-step="5"><span>5</span><b>Parse grammar</b></button>
+      <button class="step" data-step="6"><span>6</span><b>Keep SVO clauses</b></button>
+      <button class="step" data-step="7"><span>7</span><b>Classify agents</b></button>
+      <button class="step" data-step="8"><span>8</span><b>Identify verbs</b></button>
+      <button class="step" data-step="9"><span>9</span><b>Classify legal type</b></button>
+      <button class="step" data-step="10"><span>10</span><b>Build measures</b></button>
+      <button class="step" data-step="11"><span>11</span><b>Assign topics</b></button>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace-head">
+        <div>
+          <p id="stepKicker" class="eyebrow">STEP 1 OF 11</p>
+          <h2 id="stepHeading">Paste a collective bargaining agreement</h2>
+          <p id="stepDescription" class="muted">Paste machine-readable contract text. The app does not perform OCR.</p>
+        </div>
+        <div class="actions">
+          <button id="resetButton" class="button secondary">Start over</button>
+          <button id="downloadJson" class="button secondary" disabled>JSON</button>
+          <button id="downloadCsv" class="button secondary" disabled>Clauses CSV</button>
+        </div>
+      </div>
+
+      <section id="inputPanel" class="panel">
+        <label for="contractText">Contract text</label>
+        <textarea id="contractText" placeholder="Paste the CBA text here…" spellcheck="false"></textarea>
+        <div class="text-meta"><span id="charCount">0 characters</span><span>Nothing is saved on the server.</span></div>
+      </section>
+
+      <section id="summaryStrip" class="summary-strip hidden"></section>
+      <section id="output" class="output"></section>
+
+      <footer class="runbar">
+        <p id="statusText" class="muted">Paste text to begin.</p>
+        <button id="runButton" class="button primary">Save text and continue →</button>
+      </footer>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
+

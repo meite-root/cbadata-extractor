@@ -1,0 +1,15 @@
+[Unit]
+Description=CBA Data Extractor FastAPI app
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/cbadata-extractor
+Environment="PATH=/opt/cbadata-extractor/.venv/bin"
+ExecStart=/opt/cbadata-extractor/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+

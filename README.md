@@ -45,7 +45,7 @@ pytest -q
 uvicorn app.main:app --reload
 ```
 
-Open <http://127.0.0.1:8000>. A demonstration contract is available at `sample/sample_contract.txt`.
+Open <http://127.0.0.1:8000>, paste contract text, and run any step from the left-hand workflow.
 
 If the spaCy English model is unavailable, the app remains functional using a clearly labeled heuristic fallback. Production deployment should install `en_core_web_sm`.
 
@@ -84,4 +84,3 @@ systemctl restart nginx
 ```
 
 The API limits pasted text to approximately two million characters. Contract text is processed in memory and is not persisted by the application.
-
